@@ -8,6 +8,7 @@ package newbull.unittest;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import newbull.unittest.annotations.*;
 
 /**
  * @author fankai

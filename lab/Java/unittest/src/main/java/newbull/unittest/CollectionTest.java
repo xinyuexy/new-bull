@@ -31,6 +31,7 @@ public class CollectionTest extends AbstractTest {
         Collection<Integer> collection = createCollection();
         collection.add(3);
         collection.add(9);
+        System.out.println("test add");
         assert collection.size() == 2;
     }
 
@@ -45,7 +46,7 @@ public class CollectionTest extends AbstractTest {
         return collection;
     }
 
-    public static void main(String... args) {
+    public static void main(String[] args) {
         new CollectionTest().run();
     }
 }

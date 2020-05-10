@@ -6,6 +6,7 @@
  */
 package newbull.unittest;
 
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Collection;
 import newbull.unittest.annotations.*;
@@ -38,6 +39,20 @@ public class CollectionTest extends AbstractTest {
     @Test
     public void testNothing() {
         System.out.println("test nothing");
+    }
+
+    @Test
+    public void testCollectionProxy() {
+        Collection proxy = (Collection) Proxy.newProxyInstance(
+                Collection.class.getClassLoader(),
+                new Class[]{Collection.class},
+                new CollectionHandler(new ArrayList<Integer>() {
+                })
+        );
+        System.out.println("test collection proxy");
+        proxy.add(1);
+        proxy.add(2);
+        assert proxy.size() == 2;
     }
 
     private Collection<Integer> createCollection() {
